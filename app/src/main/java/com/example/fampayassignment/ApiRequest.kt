@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface ApiRequest {
     @GET("5ed79368320000a0cc27498b")
-    fun getItems() : List<ItemsDesc>
+    suspend fun getItems() : List<ItemsDesc>
 }

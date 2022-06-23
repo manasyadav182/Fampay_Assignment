@@ -2,8 +2,8 @@ package com.example.fampayassignment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,9 +37,9 @@ class MainActivity : AppCompatActivity() {
         }
         lifecycleScope.launch{
             viewModel.flowapi.collect {
+                Log.e("abc","${it[0]}")
                 itemController.setData(it)
             }
         }
-        itemController.requestModelBuild()
     }
 }

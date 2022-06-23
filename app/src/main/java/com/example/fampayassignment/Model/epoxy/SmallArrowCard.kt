@@ -8,7 +8,10 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
+import com.bumptech.glide.Glide
 import com.example.fampayassignment.databinding.SmallArrowCardViewBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.net.URL
 
 @ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)
@@ -23,9 +26,14 @@ class SmallArrowCard @JvmOverloads constructor(
 
     @ModelProp
     fun setIcon(link: String) {
-        val bitmap = BitmapFactory.decodeStream(URL(link).openConnection().getInputStream())
-        val background = BitmapDrawable(resources, bitmap)
-        binding.img.setImageDrawable(background)
+//        var background : BitmapDrawable? = null
+//        GlobalScope.launch {
+//            val bitmap = BitmapFactory.decodeStream(URL(link).openConnection().getInputStream())
+//            background = BitmapDrawable(resources, bitmap)
+//        }
+        Glide.with(this)
+            .load(link)
+            .into(binding.img)
     }
 
     @ModelProp

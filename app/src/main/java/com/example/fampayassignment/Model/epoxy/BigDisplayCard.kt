@@ -2,19 +2,16 @@ package com.example.fampayassignment.Model.epoxy
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
+import com.bumptech.glide.Glide
 import com.example.fampayassignment.Model.Entities
 import com.example.fampayassignment.databinding.BigDisplayCardViewBinding
-import java.io.InputStream
-import java.net.URL
 
 
 @ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)
@@ -36,11 +33,35 @@ class BigDisplayCard @JvmOverloads constructor(
             val intent = Intent(Intent.ACTION_VIEW, uri)
             context.startActivity(intent)
         }
+
+        binding.view.setOnLongClickListener {
+            setchange()
+        }
+        binding.bt2.setOnClickListener{
+            val newLayoutParams: LayoutParams = binding.view.getLayoutParams() as LayoutParams
+            newLayoutParams.setMargins(0,0, 0, 0)
+            binding.view.setLayoutParams(newLayoutParams)
+
+            binding.bt1.visibility = GONE
+            binding.bt2.visibility = GONE
+        }
+    }
+
+    fun setchange(): Boolean {
+        val newLayoutParams: LayoutParams = binding.view.getLayoutParams() as LayoutParams
+        newLayoutParams.setMargins(500,0, -500, 0)
+        binding.view.setLayoutParams(newLayoutParams)
+
+        binding.bt1.visibility = VISIBLE
+        binding.bt2.visibility = VISIBLE
+        return true
     }
 
     @ModelProp
     fun setBackgroundImage(url : String){
-        binding.layout.setBackgroundDrawable(BitmapDrawable(BitmapFactory.decodeStream((URL(url).getContent() as InputStream))))
+        Glide.with(this)
+            .load(url)
+            .into(binding.imgview)
     }
 
     @ModelProp

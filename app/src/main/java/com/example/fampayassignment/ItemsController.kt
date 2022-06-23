@@ -19,13 +19,13 @@ class ItemController : TypedEpoxyController<List<ItemsDesc>>(){
                     it.cards[0].bgImage?.imageUrl?.let { it1 -> backgroundImage(it1) }
                 }
             }
-            else if (it.designType.equals("HC6")){
+            else if (it.designType.equals("HC5")){
                 imageCard {
                     id("$modelCountBuiltSoFar")
                     it.cards[0].bgImage?.imageUrl?.let { it1 -> image(it1) }
                 }
             }
-            else if (it.designType.equals("HC5")){
+            else if (it.designType.equals("HC6")){
                 smallArrowCard {
                     id("$modelCountBuiltSoFar")
                     it.cards[0].icon.imgurl?.let { it1 -> icon(it1) }
