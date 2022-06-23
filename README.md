@@ -12,4 +12,4 @@ Epoxy Recycler View by AirBNB is used to display different model views.
 
 PS only five items are created, there is no relevant design given for HC4 and being a very simialr view to others, it's been ignored
 
-Link to the APK : 
+Link to the APK : https://drive.google.com/drive/folders/199VhP_ZWtZMPAiO23jPIiQI13mJcbWRR?usp=sharing
