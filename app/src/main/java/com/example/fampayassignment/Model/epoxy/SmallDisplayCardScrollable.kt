@@ -1,4 +1,5 @@
 package com.example.fampayassignment.Model.epoxy
+
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
@@ -8,17 +9,18 @@ import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import com.bumptech.glide.Glide
 import com.example.fampayassignment.Model.Cards
-import com.example.fampayassignment.databinding.MultipleCardBinding
+import com.example.fampayassignment.databinding.ScrollableMultipleCardBinding
+
 
 @ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)
-class SmallDisplayCard @JvmOverloads constructor(
+class SmallDisplayCardScrollable @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,
     defStyle: Int = 0,
 ) : ConstraintLayout(context, attributeSet, defStyle) {
 
-    private val binding: MultipleCardBinding =
-        MultipleCardBinding.inflate(LayoutInflater.from(context), this, true)
+    private val binding: ScrollableMultipleCardBinding =
+        ScrollableMultipleCardBinding.inflate(LayoutInflater.from(context), this, true)
 
     @ModelProp
     fun setIcon1(link: String) {

@@ -2,9 +2,7 @@ package com.example.fampayassignment
 
 import com.airbnb.epoxy.TypedEpoxyController
 import com.example.fampayassignment.Model.ItemsDesc
-import com.example.fampayassignment.Model.epoxy.bigDisplayCard
-import com.example.fampayassignment.Model.epoxy.imageCard
-import com.example.fampayassignment.Model.epoxy.smallArrowCard
+import com.example.fampayassignment.Model.epoxy.*
 
 class ItemController : TypedEpoxyController<List<ItemsDesc>>(){
     override fun buildModels(data: List<ItemsDesc>?) {
@@ -32,7 +30,28 @@ class ItemController : TypedEpoxyController<List<ItemsDesc>>(){
                     it.cards[0].formattedTitle?.text?.let { it1 -> text(it1) }
                 }
             }
-
+            else if (it.designType.equals("HC1")){
+                if(it.isScrollable == true){
+                    smallDisplayCardScrollable {
+                        id("$modelCountBuiltSoFar")
+                        it.cards[0].icon.imgurl?.let { it1 -> icon1(it1) }
+                        it.cards[1].icon.imgurl?.let { it1 -> icon2(it1) }
+                        it.cards[0].formattedTitle?.text?.let { it1 -> text1(it1) }
+                        it.cards[1].formattedTitle?.text?.let { it1 -> text2(it1) }
+                        text3(it.cards[1])
+                    }
+                }
+                else{
+                    smallDisplayCard {
+                        id("$modelCountBuiltSoFar")
+                        it.cards[0].icon.imgurl?.let { it1 -> icon1(it1) }
+                        it.cards[1].icon.imgurl?.let { it1 -> icon2(it1) }
+                        it.cards[0].formattedTitle?.text?.let { it1 -> text1(it1) }
+                        it.cards[1].formattedTitle?.text?.let { it1 -> text2(it1) }
+                        text3(it.cards[1])
+                    }
+                }
+            }
         }
     }
 

@@ -6,6 +6,8 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/big_display_card_view.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/img_card_view.xml" value="0.3578125" />
+        <entry key="app/src/main/res/layout/multiple_card.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/scrollable_multiple_card.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/small_arrow_card_view.xml" value="0.20208333333333334" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_arrow.xml" value="0.166" />
         <entry key="app/src/main/res/xml/network_security_config.xml" value="0.20208333333333334" />
